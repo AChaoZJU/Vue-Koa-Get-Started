@@ -1,0 +1,23 @@
+{
+    "code": 0,
+    "data": [{
+            "orderId": "222222",
+            "goodName": "书籍《他改变了世界》",
+            "amount": 2,
+            "unitPrice": 1927,
+            "orderStatus": 1,
+            "orderTime": "2017-7-08 19:30",
+            "imgUrl": "frontend/static/imgs/goodsImgs/good001.jpg"
+        },
+        {
+            "orderId": "222222",
+            "goodName": "书籍《他改变了世界》",
+            "amount": 3,
+            "unitPrice": 1927,
+            "orderStatus": 0,
+            "orderTime": "2017-07-06 11:30",
+            "imgUrl": "frontend/static/imgs/goodsImgs/good002.jpg"
+
+        }
+    ]
+}
