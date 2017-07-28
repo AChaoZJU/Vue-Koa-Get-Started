@@ -32,6 +32,7 @@
             "goodName": "书籍《他:六四事件的最大获利者》",
             "unitPrice": 88,
             "amout": 11,
+            "sellAmount": 11,
             "imgUrl": "static/imgs/goodsImgs/good002.jpg",
             "goodAddress": "杭州萧山"
         },
@@ -40,6 +41,7 @@
             "goodName": "书籍《他:六四事件的最大获利者》",
             "unitPrice": 88,
             "amout": 11,
+            "sellAmount": 11,
             "imgUrl": "static/imgs/goodsImgs/good002.jpg",
             "goodAddress": "杭州萧山"
         },
@@ -48,6 +50,7 @@
             "goodName": "书籍《他:六四事件的最大获利者》",
             "unitPrice": 88,
             "amout": 11,
+            "sellAmount": 11,
             "imgUrl": "static/imgs/goodsImgs/good002.jpg",
             "goodAddress": "杭州萧山"
         },
@@ -56,6 +59,7 @@
             "goodName": "书籍《他:六四事件的最大获利者》",
             "unitPrice": 88,
             "amout": 11,
+            "sellAmount": 11,
             "imgUrl": "static/imgs/goodsImgs/good002.jpg",
             "goodAddress": "杭州萧山"
         }

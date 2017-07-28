@@ -5,6 +5,10 @@ import good from '@/pages/good'
 
 Vue.use(Router)
 
+import { f } from '@/service/test'
+export { f }
+f();
+
 export default new Router({
     routes: [{
             path: '/',

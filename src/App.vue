@@ -37,4 +37,8 @@ export default {
   color: #2c3e50;
   margin-top: 0;
 }
+body{
+  margin: 0;
+  padding: 0;
+}
 </style>

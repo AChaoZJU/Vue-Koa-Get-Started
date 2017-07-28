@@ -1,18 +1,24 @@
 <template>
   <el-col :span="6">
+      <div class="panel">
       <img :src="good.imgUrl">
       <div class="good-price">{{good.unitPrice}}</div>
       <div>{{good.goodName}}</div>
         <div class="sell-amount">
-                    成交量:<span>{{good.sellAmount}}笔</span>
+            成交量:<span>{{good.sellAmount}}笔</span>
+        </div>
         </div>
   </el-col>
 </template>
 
 <script>
+import priceService from '@/service/priceService'
+
 export default {
     props:['good'],
-
+    created(){
+        this.good.unitPrice=priceService(this.good.unitPrice);
+    }
 }
 </script>
 
@@ -20,6 +26,8 @@ export default {
    .el-col{
        text-align: left;
         padding: 20px;
+        .panel{border: 1px solid #eee;
+        
         img {
             width: 100%;
             height: 200px;
@@ -34,6 +42,7 @@ export default {
                 font-size: 20px;
                 font-weight: 700;
             }
+        }
         }
    }
 </style>
