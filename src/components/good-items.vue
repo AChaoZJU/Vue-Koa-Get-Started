@@ -6,6 +6,7 @@
 
 <script>
 import goodItem from '@/components/good-item'
+import bus from '@/service/eventBus.js'
 import axios from 'axios'
 export default {
     data(){
@@ -13,14 +14,21 @@ export default {
             goods:[]
         }
     },
+    methods:{
+        http:function(pageSize,keyword){
+            axios.get('static/jsons/goods.json',{params:{
+            pageSize:pageSize,pageNumer:16,keyword:keyword
+            }}).then(res=>{
+                this.goods=res.data.data
+            }).catch(err=>{
+            });
+        }
+    },
     created(){
-        axios.get('static/jsons/goods.json',{params:{
-            pageSize:1,pageNumer:16
-        }}).then(res=>{
-            this.goods=res.data.data
-        }).then(err=>{
-
-        });
+        this.http(1);
+        bus.$on('search',function(keyword){
+            http(1,keyword);
+        })
     },
     components:{
         goodItem
