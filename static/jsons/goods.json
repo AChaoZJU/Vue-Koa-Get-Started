@@ -63,5 +63,6 @@
             "imgUrl": "static/imgs/goodsImgs/good002.jpg",
             "goodAddress": "杭州萧山"
         }
-    ]
+    ],
+    "msg": 900
 }

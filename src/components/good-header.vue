@@ -1,11 +1,14 @@
 <template>
-  <el-input
-  placeholder="请输入商品名称"
-  icon="search"
-  v-model='keyword'
-  :on-icon-click="search">
-</el-input>
-
+    <el-row>
+        <el-col :span="6">
+            <el-input
+            placeholder="请输入商品名称"
+            icon="search"
+            v-model='keyword'
+            :on-icon-click="search">
+            </el-input>
+        </el-col>
+    </el-row>
 </template>
 
 <script>
@@ -24,6 +27,9 @@ export default {
 }
 </script>
 
-<style>
-  
+<style lang='scss' scoped>
+    .el-row{
+        margin-top: 30px;
+        margin-left: 30px;
+    }
 </style>

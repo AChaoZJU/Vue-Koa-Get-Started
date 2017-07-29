@@ -8,8 +8,12 @@
 <script>
 import goodItems from '@/components/good-items'
 import goodHeader from '@/components/good-header'
-import axios from 'axios'
 export default {
+     data(){
+        return{
+            goods:[]
+        }
+    },
     components:{
         goodItems,
         goodHeader
