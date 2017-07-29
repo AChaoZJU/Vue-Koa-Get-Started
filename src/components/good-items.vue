@@ -25,9 +25,11 @@ export default {
         }
     },
     created(){
-        this.http(1);
+        let here=this;
+        here.http(1);
         bus.$on('search',function(keyword){
-            http(1,keyword);
+            here.http(1,keyword);
+            console.log(this);
         })
     },
     components:{
