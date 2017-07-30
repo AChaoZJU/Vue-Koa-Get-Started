@@ -25,7 +25,7 @@ export default new Router({
             name: 'upload',
             component: upload
         }, {
-            path: '/update',
+            path: '/update/:goodId',
             name: 'update',
             component: update
         }

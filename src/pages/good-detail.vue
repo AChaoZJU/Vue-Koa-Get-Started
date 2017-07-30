@@ -19,7 +19,7 @@
             </div>
             <div>
                 <el-button @click='download'>下架该商品</el-button>
-                <el-button><router-link to='/update'>编辑该商品</router-link></el-button>
+                <el-button><router-link :to='updateRoute'>编辑该商品</router-link></el-button>
             </div>
              <div class="feedback" v-show="ifFeedback">
                 <div><img src="/static/icons/success.svg">下架成功!</div>
@@ -38,7 +38,8 @@ export default {
     data(){
         return{
             good:{},
-            ifFeedback:false
+            ifFeedback:false,
+            updateRoute:''
         }
     },
     created(){
@@ -49,6 +50,7 @@ export default {
         })
         .then(res=>{
             this.good=res.data.data;
+            this.updateRoute='/update/'+this.good.goodId;
             this.good.unitPrice=price(this.good.unitPrice);
         }).catch(error=>{
 
