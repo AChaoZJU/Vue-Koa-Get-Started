@@ -1,13 +1,15 @@
 <template>
   <el-col :span="6">
-      <div class="panel">
-      <img :src="good.imgUrl">
-      <div class="good-price">{{good.unitPrice}}</div>
-      <div>{{good.goodName}}</div>
-        <div class="sell-amount">
-            成交量:<span>{{good.sellAmount}}笔</span>
-        </div>
-        </div>
+      <el-card>
+          <router-link :to='router'>
+            <img :src="good.imgUrl">
+            <div class="good-price">{{good.unitPrice}}</div>
+            <div>{{good.goodName}}</div>
+            <div class="sell-amount">
+                成交量:<span>{{good.sellAmount}}笔</span>
+            </div>
+        </router-link>
+        </el-card>
   </el-col>
 </template>
 
@@ -15,18 +17,24 @@
 import priceService from '@/service/priceService'
 
 export default {
+    data(){
+        return{
+            router:''
+        }
+    },
     props:['good'],
     created(){
         this.good.unitPrice=priceService(this.good.unitPrice);
+        this.router='/good/'+this.good.goodId;
     }
 }
 </script>
 
 <style  lang='scss' scoped>
    .el-col{
-       text-align: left;
+        text-align: left;
         padding: 20px;
-        .panel{border: 1px solid #eee;
+        
         
         img {
             width: 100%;
@@ -43,6 +51,6 @@ export default {
                 font-weight: 700;
             }
         }
-        }
+        
    }
 </style>

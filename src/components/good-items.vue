@@ -27,7 +27,7 @@ export default {
     },
     methods:{
         http:function(){
-            axios.get('static/jsons/goods.json',{params:{
+            axios.get('/static/jsons/goods.json',{params:{
             pageSize:this.pageSize,pageNumer:this.pageNumer,keyword:this.keyword
             }}).then(res=>{
                 this.goods=res.data.data
