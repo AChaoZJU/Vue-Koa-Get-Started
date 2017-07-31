@@ -39,7 +39,6 @@
 
 <script>
 	import axios from 'axios'
-	import '@/assets/animate.min.css'
 	export default {
 		data() {
 			return {

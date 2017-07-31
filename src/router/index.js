@@ -4,6 +4,7 @@ import good from '@/pages/good'
 import goodDetail from '@/pages/good-detail'
 import upload from '@/pages/good-upload'
 import update from '@/pages/good-update'
+import test from '@/pages/test'
 
 Vue.use(Router)
 
@@ -28,6 +29,10 @@ export default new Router({
             path: '/update/:goodId',
             name: 'update',
             component: update
+        }, {
+            path: '/test',
+            name: 'test',
+            component: test
         }
     ]
 })
