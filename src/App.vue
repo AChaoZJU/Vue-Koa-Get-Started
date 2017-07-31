@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">商品</el-menu-item>
-      <el-menu-item index="2">订单
-      </el-menu-item>
+      <el-menu-item index="1"><router-link to='/good'>商品</router-link></el-menu-item>
+      <el-menu-item index="2">订单</el-menu-item>
+      <el-menu-item style="float:right;" index="3"><router-link to="/upload">上架商品</router-link></el-menu-item>
     </el-menu>
     <router-view></router-view>
   </div>
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,5 +40,8 @@ export default {
 body{
   margin: 0;
   padding: 0;
+}
+a{
+  text-decoration: none;
 }
 </style>

@@ -1,13 +1,22 @@
 <template>
+    <div>
+        <good-header></good-header>
         <good-items></good-items>
+    </div>
 </template>
 
 <script>
 import goodItems from '@/components/good-items'
-import axios from 'axios'
+import goodHeader from '@/components/good-header'
 export default {
+     data(){
+        return{
+            goods:[]
+        }
+    },
     components:{
-        goodItems
+        goodItems,
+        goodHeader
     }
 }
 </script>

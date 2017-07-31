@@ -1,24 +1,38 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 import good from '@/pages/good'
+import goodDetail from '@/pages/good-detail'
+import upload from '@/pages/good-upload'
+import update from '@/pages/good-update'
+import test from '@/pages/test'
 
 Vue.use(Router)
-
-import { f } from '@/service/test'
-export { f }
-f();
 
 export default new Router({
     routes: [{
             path: '/',
-            name: 'Hello',
-            component: Hello
+            redirect: '/good'
         },
         {
             path: '/good',
             name: 'good',
             component: good
+        }, {
+            path: '/good/:goodId',
+            name: 'goodDetial',
+            component: goodDetail
+        }, {
+            path: '/upload',
+            name: 'upload',
+            component: upload
+        }, {
+            path: '/update/:goodId',
+            name: 'update',
+            component: update
+        }, {
+            path: '/test',
+            name: 'test',
+            component: test
         }
     ]
 })
