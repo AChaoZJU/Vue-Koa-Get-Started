@@ -15,7 +15,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 222,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good004.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -24,7 +24,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 223,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good003.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -33,7 +33,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good004.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -42,7 +42,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good004.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -51,7 +51,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good003.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -60,7 +60,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good003.jpg",
             "goodAddress": "杭州萧山"
         }
     ],
