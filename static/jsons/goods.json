@@ -1,7 +1,7 @@
 {
     "code": 0,
     "data": [{
-            "goodId": 1927,
+            "goodId": 1,
             "goodName": "书籍《他在新闻60分上的访谈录》",
             "unitPrice": 88,
             "amout": 11,
@@ -10,21 +10,30 @@
             "goodAddress": "杭州萧山"
         },
         {
-            "goodId": 1989,
+            "goodId": 2,
             "goodName": "书籍《他:六四事件的最大获利者》",
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 222,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good004.jpg",
             "goodAddress": "杭州萧山"
         },
         {
-            "goodId": 1989,
+            "goodId": 3,
             "goodName": "书籍《他:六四事件的最大获利者》",
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 223,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good003.jpg",
+            "goodAddress": "杭州萧山"
+        },
+        {
+            "goodId": 4,
+            "goodName": "书籍《他:六四事件的最大获利者》",
+            "unitPrice": 88,
+            "amout": 11,
+            "sellAmount": 11,
+            "imgUrl": "static/imgs/goodsImgs/good004.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -33,7 +42,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good004.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -42,7 +51,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good003.jpg",
             "goodAddress": "杭州萧山"
         },
         {
@@ -51,16 +60,7 @@
             "unitPrice": 88,
             "amout": 11,
             "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
-            "goodAddress": "杭州萧山"
-        },
-        {
-            "goodId": 1989,
-            "goodName": "书籍《他:六四事件的最大获利者》",
-            "unitPrice": 88,
-            "amout": 11,
-            "sellAmount": 11,
-            "imgUrl": "static/imgs/goodsImgs/good002.jpg",
+            "imgUrl": "static/imgs/goodsImgs/good003.jpg",
             "goodAddress": "杭州萧山"
         }
     ],

@@ -1,5 +1,5 @@
 <template>
-  <panel jsonUrl='/static/jsons/upload.json'>
+  <panel jsonUrl='/api/upload'>
       <h4 slot="header">上架商品</h4>
       <span slot="button">上架</span>
       <span slot="result">上架</span>

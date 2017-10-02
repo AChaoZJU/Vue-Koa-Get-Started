@@ -47,7 +47,7 @@
 					goodInfo: '',
 					unitPrice: '',
 					goodName: '',
-					amount: ''
+					amount: 0
 				},
 				ifFeedback: false,
 				route: '',
@@ -60,15 +60,25 @@
 		methods: {
 			submit: function() {
 				this.good.goodId = this.goodId;
-				axios.get(this.jsonUrl, {
-						params: {
-							good: this.good
-						}
-					})
+				this.$http.post(this.jsonUrl, this.good)
 					.then(res => {
-						if (res.data.code === 0) {
+						const data = res.data;
+						this.$message({
+							type: 'success',
+							message: data.msg
+						});
+						if (data.code === 0) {
 							this.ifFeedback = true;
-							this.route = '/good/' + res.data.data.goodId;
+							this.route = '/good/' + data.data.goodId;
+							this.$message({
+								type: 'success',
+								message: data.msg
+							});
+						} else {
+							this.$message({ 
+								type: 'error',
+								message:data.msg
+								});
 						}
 					}).catch(err => {
 	
