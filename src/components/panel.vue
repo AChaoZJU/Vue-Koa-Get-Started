@@ -60,11 +60,7 @@
 		methods: {
 			submit: function() {
 				this.good.goodId = this.goodId;
-				axios.get(this.jsonUrl, {
-						params: {
-							good: this.good
-						}
-					})
+				this.$http.post(this.jsonUrl, this.good)
 					.then(res => {
 						if (res.data.code === 0) {
 							this.ifFeedback = true;

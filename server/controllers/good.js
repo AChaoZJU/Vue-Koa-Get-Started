@@ -1,9 +1,17 @@
 import good from '../models/good.js'
 
 const getGoodDetail = async function(ctx) {
-        const id = ctx.params.id;
-        const result = await good.getGoodDetail(id);
-        ctx.body = result;
+    const id = ctx.params.id;
+    const result = await good.getGoodDetail(id);
+    ctx.body = result;
+}
+
+const uploadGood = async function(ctx) {
+        const data = ctx.request.body;
+        const result = await good.uploadGood(data);
+        ctx.body = {
+            success: true
+        }
     }
     // const getTodolist = async function(ctx) {
     //     const id = ctx.params.id // 获取url里传过来的参数里的id
@@ -44,7 +52,8 @@ const getGoodDetail = async function(ctx) {
 // }
 
 export default {
-    getGoodDetail
+    getGoodDetail,
+    uploadGood
     // getTodolist,
     // createTodolist,
     // removeTodolist,

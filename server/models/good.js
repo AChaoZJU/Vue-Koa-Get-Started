@@ -15,8 +15,19 @@ const getGoodDetail = async function(id) {
     return goodDetail[0];
 }
 
+const uploadGood = async function(data) {
+    const upload = await good.create({
+        'goodName': data.goodName,
+        'unitPrice': data.unitPrice,
+        'amount': data.amount,
+        'goodInfo': data.goodInfo
+    });
+    return true;
+}
+
 export default {
-    getGoodDetail
+    getGoodDetail,
+    uploadGood
 }
 // import db from '../config/db.js' // 引入todolist的表结构
 // const todoModel = '../schema/list.js'

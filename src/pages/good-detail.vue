@@ -43,11 +43,7 @@ export default {
         }
     },
     created(){
-        this.$http.get('/api/goodDetail/1',{
-            params:{
-                goodId:this.$route.params.goodId
-            }
-        })
+        this.$http.get('/api/goodDetail/1')
         .then(res=>{
             this.good=res.data;
             this.updateRoute='/update/'+this.good.goodId;

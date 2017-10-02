@@ -9,6 +9,8 @@ const router = koa_router()
 //     router.put('/todolist/:userId/:id/:status', api.updateTodolist)
 
 router.get('/goodDetail/:id', apiGood.getGoodDetail)
+router.post('/upload', apiGood.uploadGood)
+router.get('/')
 
 
 export default router
