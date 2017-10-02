@@ -7,11 +7,33 @@ const getGoodDetail = async function(ctx) {
 }
 
 const uploadGood = async function(ctx) {
-        const data = ctx.request.body;
+    const data = ctx.request.body;
+
+    let code = 0;
+    let msg = '上架成功'
+    const amountReg = /^\d+$/,
+        priceReg = /^\d+(\.\d+)?$/
+    if (!amountReg.test(data.amount)) {
+        code = 1;
+        msg = '无效库存输入';
+    } else if (!priceReg.test(data.unitPrice)) {
+        code = 1;
+        msg = '无效价格输入'
+    }
+    if (code === 0) {
+        data.amount = Number(data.amount);
         const result = await good.uploadGood(data);
-        ctx.body = {
-            success: true
-        }
+    }
+    ctx.body = {
+        code: code,
+        msg: msg
+    }
+}
+
+
+const updateGood = async function(ctx) {
+        const id = ctx.params.id;
+        //const result = await 
     }
     // const getTodolist = async function(ctx) {
     //     const id = ctx.params.id // 获取url里传过来的参数里的id

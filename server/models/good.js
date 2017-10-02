@@ -16,13 +16,14 @@ const getGoodDetail = async function(id) {
 }
 
 const uploadGood = async function(data) {
-    const upload = await good.create({
-        'goodName': data.goodName,
-        'unitPrice': data.unitPrice,
-        'amount': data.amount,
-        'goodInfo': data.goodInfo
-    });
+    const upload = await good.create(data);
     return true;
+}
+
+const updateGood = async function(data) {
+    const update = await good.update({
+
+    })
 }
 
 export default {
