@@ -43,13 +43,13 @@ export default {
         }
     },
     created(){
-        axios.get('/static/jsons/goodDetail.json',{
+        this.$http.get('/api/goodDetail/1',{
             params:{
                 goodId:this.$route.params.goodId
             }
         })
         .then(res=>{
-            this.good=res.data.data;
+            this.good=res.data;
             this.updateRoute='/update/'+this.good.goodId;
             this.good.unitPrice=price(this.good.unitPrice);
         }).catch(error=>{
