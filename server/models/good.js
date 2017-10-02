@@ -16,12 +16,12 @@ const getGoodDetail = async function(id) {
 }
 
 const uploadGood = async function(data) {
-    const upload = await good.create(data);
+    await good.create(data);
     return true;
 }
 
 const updateGood = async function(id, data) {
-    const update = await good.update(
+    await good.update(
         data, {
             where: {
                 goodId: id
@@ -30,10 +30,19 @@ const updateGood = async function(id, data) {
     return true;
 }
 
+const deleteGood = async function(id) {
+    await good.destroy({
+        where: {
+            goodId: id
+        }
+    })
+}
+
 export default {
     getGoodDetail,
     uploadGood,
-    updateGood
+    updateGood,
+    deleteGood
 }
 // import db from '../config/db.js' // 引入todolist的表结构
 // const todoModel = '../schema/list.js'

@@ -45,7 +45,7 @@
 				good: {
 					goodId: '',
 					goodInfo: '',
-					unitPrice: '',
+					unitPrice: 0,
 					goodName: '',
 					amount: 0
 				},

@@ -43,7 +43,7 @@ export default {
         }
     },
     created(){
-        this.$http.get('/api/goodDetail/1')
+        this.$http.get('/api/goodDetail/'+this.$route.params.goodId)
         .then(res=>{
             this.good=res.data;
             this.updateRoute='/update/'+this.good.goodId;
@@ -54,12 +54,13 @@ export default {
     },
     methods:{
         download:function(){
-            axios.get('/static/jsons/delete.json',{
-                params:{
-                    goodId:this.good.goodId
-                }
-            }).then(res=>{
+            axios.get('/api/deleteGood/'+this.good.goodId
+            ).then(res=>{
                 this.ifFeedback=true;
+                this.$message({
+                    type:'success',
+                    message:res.data.msg
+                })
             }).catch(error=>{
 
             })
