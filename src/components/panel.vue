@@ -47,7 +47,7 @@
 					goodInfo: '',
 					unitPrice: '',
 					goodName: '',
-					amount: ''
+					amount: 0
 				},
 				ifFeedback: false,
 				route: '',

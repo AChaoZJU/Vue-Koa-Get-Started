@@ -20,15 +20,20 @@ const uploadGood = async function(data) {
     return true;
 }
 
-const updateGood = async function(data) {
-    const update = await good.update({
-
-    })
+const updateGood = async function(id, data) {
+    const update = await good.update(
+        data, {
+            where: {
+                goodId: id
+            }
+        })
+    return true;
 }
 
 export default {
     getGoodDetail,
-    uploadGood
+    uploadGood,
+    updateGood
 }
 // import db from '../config/db.js' // 引入todolist的表结构
 // const todoModel = '../schema/list.js'
