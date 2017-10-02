@@ -1,4 +1,4 @@
-import db from '../config/db.js' // 引入todolist的表结构
+import db from '../config/db.js' // 引入表结构
 const goodModel = '../schema/good.js'
 const wepayDB = db.wepay // 引入数据库
 
