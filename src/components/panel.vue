@@ -63,21 +63,25 @@
 				this.$http.post(this.jsonUrl, this.good)
 					.then(res => {
 						const data = res.data;
+						this.$message({
+							type: 'success',
+							message: data.msg
+						});
 						if (data.code === 0) {
 							this.ifFeedback = true;
 							this.route = '/good/' + data.data.goodId;
-							this.$message({ 
+							this.$message({
 								type: 'success',
-								message:data.msg
-								});
-						}else{
+								message: data.msg
+							});
+						} else {
 							this.$message({ 
 								type: 'error',
 								message:data.msg
 								});
 						}
 					}).catch(err => {
-						
+	
 					})
 			},
 			toContinue: function() {
