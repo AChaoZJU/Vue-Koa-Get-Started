@@ -48,7 +48,7 @@ const deleteGood = async function(id) {
 }
 
 const getGood = async function(data) {
-    const result = await good.findAll({
+    const result = await good.findAndCountAll({
         'limit': data.pageSize,
         'offset': data.pageSize * (data.pageNumber - 1),
         where: {

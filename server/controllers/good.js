@@ -105,9 +105,18 @@ const deleteGood = async function(ctx) {
 const getGood = async function(ctx) {
     const data = ctx.request.body;
     const result = await good.getGood(data);
+    let code, msg;
+    if (result.count === 0) {
+        code = 2;
+        msg = '没有符合条件的商品';
+    } else {
+        code = 0;
+        msg = result.count;
+    }
     ctx.body = {
-        code: 0,
-        data: result
+        code: code,
+        data: result.rows,
+        msg: msg
     }
 }
 
