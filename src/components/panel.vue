@@ -69,7 +69,6 @@
 								this.route = '/good/'+data.data;
 							}else{
 								this.route = '/good/'+ this.goodId;
-								console.log(this.route);
 							}
 							this.$message({
 								type: 'success',

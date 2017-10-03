@@ -5,25 +5,24 @@ const wepayDB = db.wepay // 引入数据库
 const good = wepayDB.import(goodModel);
 
 const getGoodDetail = async function(id) {
-    const goodDetail = await good.findOne({
+    const res = await good.findOne({
         where: {
             goodId: id
         },
         attributes: ['goodId', 'goodName', 'imgUrl', 'unitPrice', 'amount', 'goodInfo']
     });
 
-    return goodDetail;
+    return res;
 }
 
 const uploadGood = async function(data) {
-    await good.create(data);
-    const goodDetail = await good.findOne({
+    const res = await good.findOrCreate({
         where: {
             goodName: data.goodName
         },
-        attributes: ['goodId']
+        defaults: data
     })
-    return goodDetail.goodId;
+    return res;
 }
 
 const updateGood = async function(id, data) {
