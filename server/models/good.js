@@ -5,41 +5,50 @@ const wepayDB = db.wepay // 引入数据库
 const good = wepayDB.import(goodModel);
 
 const getGoodDetail = async function(id) {
-    const goodDetail = await good.findOne({
+    const res = await good.findOne({
         where: {
             goodId: id
         },
         attributes: ['goodId', 'goodName', 'imgUrl', 'unitPrice', 'amount', 'goodInfo']
     });
 
-    return goodDetail[0];
+    return res;
 }
 
 const uploadGood = async function(data) {
-    await good.create(data);
-    return true;
+    const res = await good.findOrCreate({
+        where: {
+            goodName: data.goodName
+        },
+        defaults: data
+    })
+    return res;
 }
 
 const updateGood = async function(id, data) {
-    await good.update(
+    const res = await good.update(
         data, {
             where: {
                 goodId: id
             }
-        })
-    return true;
+        }).catch(err => {
+        console.log(err);
+    })
+    return res;
 }
 
 const deleteGood = async function(id) {
-    await good.destroy({
+    const row = await good.destroy({
         where: {
             goodId: id
         }
     })
+
+    return row;
 }
 
 const getGood = async function(data) {
-    const result = await good.findAll({
+    const result = await good.findAndCountAll({
         'limit': data.pageSize,
         'offset': data.pageSize * (data.pageNumber - 1),
         where: {

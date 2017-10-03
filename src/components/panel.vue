@@ -50,7 +50,7 @@
 					amount: 0
 				},
 				ifFeedback: false,
-				route: '',
+				route: ''
 			}
 		},
 		props: [
@@ -63,13 +63,13 @@
 				this.$http.post(this.jsonUrl, this.good)
 					.then(res => {
 						const data = res.data;
-						this.$message({
-							type: 'success',
-							message: data.msg
-						});
 						if (data.code === 0) {
 							this.ifFeedback = true;
-							this.route = '/good/' + data.data.goodId;
+							if(data.data){
+								this.route = '/good/'+data.data;
+							}else{
+								this.route = '/good/'+ this.goodId;
+							}
 							this.$message({
 								type: 'success',
 								message: data.msg
@@ -85,7 +85,9 @@
 					})
 			},
 			toContinue: function() {
-				this.good.goodInfo = this.good.amount = this.good.goodName = this.good.unitPrice = '';
+				this.good.amount  =  this.good.unitPrice = 0;
+				this.good.goodInfo = this.good.goodName  = '';
+				this.ifFeedback = false;
 			}
 		}
 	}
