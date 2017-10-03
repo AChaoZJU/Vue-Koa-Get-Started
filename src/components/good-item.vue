@@ -6,7 +6,7 @@
             <div class="good-price">{{good.unitPrice}}</div>
             <div>{{good.goodName}}</div>
             <div class="sell-amount">
-                成交量:<span>{{good.sellAmount}}笔</span>
+                成交量:<span>{{good.soldAmount}}笔</span>
             </div>
         </router-link>
         </el-card>

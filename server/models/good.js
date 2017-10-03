@@ -38,11 +38,20 @@ const deleteGood = async function(id) {
     })
 }
 
+const getGood = async function(pageSize, pageNumber) {
+    const result = await good.findAll({
+        'limit': pageSize,
+        'offset': pageSize * (pageNumber - 1)
+    })
+    return result;
+}
+
 export default {
     getGoodDetail,
     uploadGood,
     updateGood,
-    deleteGood
+    deleteGood,
+    getGood
 }
 // import db from '../config/db.js' // 引入todolist的表结构
 // const todoModel = '../schema/list.js'
