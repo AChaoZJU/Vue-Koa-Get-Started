@@ -17,7 +17,13 @@ const getGoodDetail = async function(id) {
 
 const uploadGood = async function(data) {
     await good.create(data);
-    return true;
+    const goodDetail = await good.findOne({
+        where: {
+            goodName: data.goodName
+        },
+        attributes: ['goodId']
+    })
+    return goodDetail.goodId;
 }
 
 const updateGood = async function(id, data) {

@@ -47,15 +47,15 @@ const getGoodDetail = async function(ctx) {
 
 const uploadGood = async function(ctx) {
     const data = ctx.request.body;
-
     let [code, msg] = checkGood(data);
-
+    let result;
     if (code === 0) {
-        const result = await good.uploadGood(data);
+        result = await good.uploadGood(data);
     }
     ctx.body = {
         code: code,
-        msg: msg
+        msg: msg,
+        data: result
     }
 }
 
