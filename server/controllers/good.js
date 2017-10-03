@@ -63,9 +63,7 @@ const deleteGood = async function(ctx) {
 
 const getGood = async function(ctx) {
     const data = ctx.request.body;
-    const pageSize = data.pageSize;
-    const pageNumber = data.pageNumber;
-    const result = await good.getGood(pageSize, pageNumber);
+    const result = await good.getGood(data);
     ctx.body = {
         code: 0,
         data: result

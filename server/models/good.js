@@ -5,7 +5,7 @@ const wepayDB = db.wepay // 引入数据库
 const good = wepayDB.import(goodModel);
 
 const getGoodDetail = async function(id) {
-    const goodDetail = await good.findAll({
+    const goodDetail = await good.findOne({
         where: {
             goodId: id
         },
@@ -38,10 +38,15 @@ const deleteGood = async function(id) {
     })
 }
 
-const getGood = async function(pageSize, pageNumber) {
+const getGood = async function(data) {
     const result = await good.findAll({
-        'limit': pageSize,
-        'offset': pageSize * (pageNumber - 1)
+        'limit': data.pageSize,
+        'offset': data.pageSize * (data.pageNumber - 1),
+        where: {
+            'goodName': {
+                '$like': '%' + data.keyword + '%'
+            }
+        }
     })
     return result;
 }
