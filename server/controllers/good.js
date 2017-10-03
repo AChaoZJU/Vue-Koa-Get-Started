@@ -83,10 +83,16 @@ const updateGood = async function(ctx) {
 
 const deleteGood = async function(ctx) {
     const id = ctx.params.id;
-    await good.deleteGood(id);
+    const row = await good.deleteGood(id);
+    let code = 0,
+        msg = '下架成功，3秒后跳转到商城首页';
+    if (row === 0) {
+        code = 1;
+        msg = '下架失败，已无该商品，3秒后跳转到商城首页';
+    }
     ctx.body = {
-        code: 0,
-        msg: '下架成功'
+        code: code,
+        msg: msg
     }
 
 }

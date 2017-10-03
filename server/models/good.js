@@ -36,11 +36,13 @@ const updateGood = async function(id, data) {
 }
 
 const deleteGood = async function(id) {
-    await good.destroy({
+    const row = await good.destroy({
         where: {
             goodId: id
         }
     })
+
+    return row;
 }
 
 const getGood = async function(data) {

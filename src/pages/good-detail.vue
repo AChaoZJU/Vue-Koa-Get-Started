@@ -51,12 +51,11 @@
                         this.good = res.data.result;
                         this.updateRoute = '/update/' + this.good.goodId;
                         this.good.unitPrice = price(this.good.unitPrice);
-                    }
-                    else{
+                    } else {
                         this.$message({
-                            type:'error',
-                            message:res.data.msg
-                        })
+                            type: 'error',
+                            message: res.data.msg
+                        });
                     }
                 }).catch(error => {
     
@@ -66,10 +65,19 @@
             download: function() {
                 this.$http.get('/api/deleteGood/' + this.good.goodId).then(res => {
                     this.ifFeedback = true;
+                    let type;
+                    if (res.data.code === 0) {
+                        type = 'success'
+                    } else {
+                        type = 'error'
+                    }
                     this.$message({
-                        type: 'success',
+                        type: type,
                         message: res.data.msg
-                    })
+                    })    
+                    setTimeout(() => {
+                       this.$router.replace('/good')
+                    }, 3000)
                 }).catch(error => {
     
                 })
