@@ -5,7 +5,7 @@ const wepayDB = db.wepay // 引入数据库
 const good = wepayDB.import(goodModel);
 
 const getGoodDetail = async function(id) {
-    const goodDetail = await good.findAll({
+    const goodDetail = await good.findOne({
         where: {
             goodId: id
         },
@@ -38,11 +38,25 @@ const deleteGood = async function(id) {
     })
 }
 
+const getGood = async function(data) {
+    const result = await good.findAll({
+        'limit': data.pageSize,
+        'offset': data.pageSize * (data.pageNumber - 1),
+        where: {
+            'goodName': {
+                '$like': '%' + data.keyword + '%'
+            }
+        }
+    })
+    return result;
+}
+
 export default {
     getGoodDetail,
     uploadGood,
     updateGood,
-    deleteGood
+    deleteGood,
+    getGood
 }
 // import db from '../config/db.js' // 引入todolist的表结构
 // const todoModel = '../schema/list.js'

@@ -2,7 +2,7 @@
   <el-row>
     <el-col :span='8'>
         <el-card>
-            <img :src="good.imgUrl" class="good-img">
+            <img :src="good.imgUrl" class="good-img" alt="图片加载失败">
         </el-card>
     </el-col>
     <el-col :span="8">
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import price from '@/service/priceService.js'
 
 export default {

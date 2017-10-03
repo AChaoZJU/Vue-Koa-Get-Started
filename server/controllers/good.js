@@ -61,11 +61,21 @@ const deleteGood = async function(ctx) {
 
 }
 
+const getGood = async function(ctx) {
+    const data = ctx.request.body;
+    const result = await good.getGood(data);
+    ctx.body = {
+        code: 0,
+        data: result
+    }
+}
+
 export default {
     getGoodDetail,
     uploadGood,
     updateGood,
-    deleteGood
+    deleteGood,
+    getGood
 }
 // import todolist from '../models/todolist.js'
 

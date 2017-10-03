@@ -14,7 +14,6 @@
 import goodItem from '@/components/good-item'
 import goodPaging from '@/components/good-paging'
 import bus from '@/service/eventBus.js'
-import axios from 'axios'
 export default {
     data(){
         return{
@@ -27,9 +26,9 @@ export default {
     },
     methods:{
         http:function(){
-            axios.get('/static/jsons/goods.json',{params:{
-            pageSize:this.pageSize,pageNumer:this.pageNumer,keyword:this.keyword
-            }}).then(res=>{
+            this.$http.post('/api/getGood',{
+            pageSize:this.pageSize,pageNumber:this.pageNumer,keyword:this.keyword
+            }).then(res=>{
                 this.goods=res.data.data
                 this.total=res.data.msg;
             }).catch(err=>{
