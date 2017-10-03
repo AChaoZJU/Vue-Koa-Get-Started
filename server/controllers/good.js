@@ -2,15 +2,27 @@ import good from '../models/good.js'
 
 const checkGood = function(data) {
     let code = 0;
-    let msg = '上架成功'
+    let msg;
     const amountReg = /^\d+$/,
-        priceReg = /^\d+(\.\d+)?$/
-    if (!amountReg.test(data.amount)) {
-        code = 1;
+        priceReg = /^\d+(\.\d+)?$/,
+        infoReg = /[\s\S]/gu;
+    const infoRes = data.goodInfo.match(infoReg);
+    const nameRes = data.goodName.match(infoReg);
+    const infoLength = infoRes ? infoRes.length : 0;
+    const nameLength = nameRes ? nameRes.length : 0;
+    if (nameLength <= 2) {
+        msg = '商品名称不能小于3个字符'
+    } else if (!amountReg.test(data.amount)) {
         msg = '无效库存输入';
     } else if (!priceReg.test(data.unitPrice)) {
-        code = 1;
         msg = '无效价格输入'
+    } else if (infoLength <= 4) {
+        msg = '商品介绍不能小于5个字符';
+    }
+    if (msg) {
+        code = 1;
+    } else {
+        msg = '上架成功';
     }
     return [code, msg];
 }

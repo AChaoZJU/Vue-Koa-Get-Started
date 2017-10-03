@@ -64,7 +64,7 @@
         },
         methods: {
             download: function() {
-                axios.get('/api/deleteGood/' + this.good.goodId).then(res => {
+                this.$http.get('/api/deleteGood/' + this.good.goodId).then(res => {
                     this.ifFeedback = true;
                     this.$message({
                         type: 'success',
