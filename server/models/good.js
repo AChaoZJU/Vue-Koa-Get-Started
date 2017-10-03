@@ -26,13 +26,15 @@ const uploadGood = async function(data) {
 }
 
 const updateGood = async function(id, data) {
-    await good.update(
+    const res = await good.update(
         data, {
             where: {
                 goodId: id
             }
-        })
-    return true;
+        }).catch(err => {
+        console.log(err);
+    })
+    return res;
 }
 
 const deleteGood = async function(id) {

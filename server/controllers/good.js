@@ -73,7 +73,12 @@ const updateGood = async function(ctx) {
 
     if (code === 0) {
         const result = await good.updateGood(id, data);
-        msg = '修改成功';
+        if (result) {
+            msg = '修改成功';
+        } else {
+            code = 1;
+            msg = '修改失败,商品名称重复';
+        }
     }
     ctx.body = {
         code: code,
