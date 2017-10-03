@@ -12,7 +12,7 @@ const getGoodDetail = async function(id) {
         attributes: ['goodId', 'goodName', 'imgUrl', 'unitPrice', 'amount', 'goodInfo']
     });
 
-    return goodDetail[0];
+    return goodDetail;
 }
 
 const uploadGood = async function(data) {

@@ -16,7 +16,7 @@ const checkGood = function(data) {
 }
 
 const getGoodDetail = async function(ctx) {
-    const id = ctx.params.id;
+    const id = Number(ctx.params.id);
     const result = await good.getGoodDetail(id);
     let code;
     let msg;
