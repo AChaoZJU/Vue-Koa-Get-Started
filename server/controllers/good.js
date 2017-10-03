@@ -18,7 +18,19 @@ const checkGood = function(data) {
 const getGoodDetail = async function(ctx) {
     const id = ctx.params.id;
     const result = await good.getGoodDetail(id);
-    ctx.body = result;
+    let code;
+    let msg;
+    if (result) {
+        code = 0;
+    } else {
+        code = 1;
+        msg = '获取商品详情失败'
+    }
+    ctx.body = {
+        code: code,
+        result: result,
+        msg: msg
+    }
 }
 
 const uploadGood = async function(ctx) {
