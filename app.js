@@ -47,8 +47,7 @@ app.on('error', function(err, ctx) {
 
 
 router.use('/auth', auth.routes()); // 挂载到koa-router上，同时会让所有的auth的请求路径前面加上'/auth'的请求路径。
-router.use('/api', api.routes());
-//router.use("/api", jwt({ secret: 'vue-koa-demo' }), api.routes()) // 所有走/api/打头的请求都需要经过jwt验证。
+router.use("/api", jwt({ secret: 'wepay' }), api.routes()) // 所有走/api/打头的请求都需要经过jwt验证。
 
 app.use(router.routes()); // 将路由规则挂载到Koa上。
 app.use(historyApiFallback());

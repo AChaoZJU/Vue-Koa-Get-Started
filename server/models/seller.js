@@ -1,4 +1,26 @@
-import db from '../config/db.js' // 引入user的表结构
+import db from '../config/db.js'
+const sellerModel = '../schema/seller.js'
+const wepay = db.wepay;
+const seller = wepay.import(sellerModel);
+
+const getSellerByEmail = async function(email) {
+    const sellerInfo = await seller.findOne({
+        where: {
+            email
+        },
+        attributes: ['sellerId', 'email', 'sellerPassword']
+    })
+    return sellerInfo;
+}
+
+export default {
+    getSellerByEmail
+}
+
+/**
+ * 
+ 
+ import db from '../config/db.js' // 引入user的表结构
 const userModel = '../schema/user.js'
 const TodolistDb = db.Todolist // 引入数据库
 
@@ -28,3 +50,5 @@ export default {
   getUserById, // 导出getUserById的方法，将会在controller里调用
   getUserByName
 }
+
+ */
