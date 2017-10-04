@@ -4,13 +4,15 @@ import good from '@/pages/good'
 import goodDetail from '@/pages/good-detail'
 import upload from '@/pages/good-upload'
 import update from '@/pages/good-update'
+import index from '@/pages/index'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [{
             path: '/',
-            redirect: '/good'
+            name: 'index',
+            component: index
         },
         {
             path: '/good',
