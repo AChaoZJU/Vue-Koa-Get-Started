@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "bcryptjs": "^2.4.3",
     "element-ui": "^1.4.0",
     "fs": "^0.0.1-security",
     "koa": "^2.3.0",

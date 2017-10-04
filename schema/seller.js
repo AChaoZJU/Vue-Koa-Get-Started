@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     sellerPassword: {
-      type: DataTypes.STRING(128),
+      type: DataTypes.STRING(80),
       allowNull: false,
       defaultValue: ''
     },

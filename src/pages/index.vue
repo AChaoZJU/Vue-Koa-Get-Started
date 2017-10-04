@@ -23,22 +23,38 @@ export default {
             return emailReg.test(email);
         },
         checkPwd: pwd => {
-            let pwdReg = /^[\s\S]{6,18}$/;
+            let pwdReg = /^[\s\S]{3,18}$/;
             pwd = pwd.trim();
             return pwdReg.test(pwd);
         },
         login: function() {
-            let type = 'success', message = '登录成功'
-            if (!this.checkEmail(this.email) || !this.checkPwd(this.pwd)) {
-                type = 'error';
-                message = '账号或密码错误，请重新输入';
-            }
-            this.$message({
-                type: type,
-                message: message
-            })
-            if (type === 'success') {
-                
+            let type = 'error',
+                message = '邮箱或密码错误，请重新输入'
+            if (this.checkEmail(this.email) && this.checkPwd(this.pwd)) {
+                let obj = {
+                    email: this.email,
+                    pwd: this.pwd
+                }
+                this.$http.post('/auth/seller', obj).then(res => {
+                    const data = res.data;
+                    if (data.code === 0) {
+                        type = 'success';
+                        message = '登录成功';
+                    }
+                }).catch((err) => {
+                    message = '系统故障';
+                    console.log(err);
+                }).finally(()=>{
+                    this.$message({
+                    type: type,
+                    message: message
+                })
+                })
+            } else {
+                this.$message({
+                    type: type,
+                    message: message
+                })
             }
         }
     }

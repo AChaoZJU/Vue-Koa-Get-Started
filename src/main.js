@@ -7,7 +7,14 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
-
+//Promise的finally回调
+Promise.prototype.finally = function(callback) {
+    let P = this.constructor;
+    return this.then(
+        value => P.resolve(callback()).then(() => value),
+        reason => P.resolve(callback()).then(() => { throw reason })
+    );
+};
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
