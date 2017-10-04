@@ -41,6 +41,8 @@ export default {
                         type = 'success';
                         message = '登录成功';
                         sessionStorage.setItem('wepay-token',data.token);
+                        sessionStorage.setItem('wepay-email',data.email);
+                        sessionStorage.setItem('wepay-sellerId',data.sellerId);
                         this.$router.push('/good');
                     }
                 }).catch((err) => {

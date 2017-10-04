@@ -21,9 +21,11 @@ const sellerAuth = async function(ctx) {
         }
     }
     ctx.body = {
-        code: code,
-        msg: msg,
-        token: token
+        code,
+        msg,
+        token,
+        email,
+        sellerId
     }
 }
 
