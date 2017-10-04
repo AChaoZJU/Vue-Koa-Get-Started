@@ -7,7 +7,8 @@ const getSellerByEmail = async function(email) {
     const sellerInfo = await seller.findOne({
         where: {
             email
-        }
+        },
+        attributes: ['sellerId', 'email', 'sellerPassword']
     })
     return sellerInfo;
 }

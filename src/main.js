@@ -15,7 +15,24 @@ Promise.prototype.finally = function(callback) {
         reason => P.resolve(callback()).then(() => { throw reason })
     );
 };
-/* eslint-disable no-new */
+
+router.beforeEach((to, from, next) => {
+        const token = sessionStorage.getItem('wepay-token');
+        if (to.path === '/') {
+            if (!!token && token !== 'null') {
+                next('/good')
+            } else {
+                next();
+            }
+        } else {
+            if (!!token && token !== 'null') {
+                next();
+            } else {
+                next('/')
+            }
+        }
+    })
+    /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,

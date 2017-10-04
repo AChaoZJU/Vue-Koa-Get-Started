@@ -40,6 +40,8 @@ export default {
                     if (data.code === 0) {
                         type = 'success';
                         message = '登录成功';
+                        sessionStorage.setItem('wepay-token',data.token);
+                        this.$router.push('/good');
                     }
                 }).catch((err) => {
                     message = '系统故障';

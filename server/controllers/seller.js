@@ -1,27 +1,29 @@
 import seller from '../models/seller.js'
 import bcrypt from 'bcryptjs'
-
-
-
+import jwt from 'jsonwebtoken'
 
 const sellerAuth = async function(ctx) {
     const { email, pwd } = ctx.request.body;
-    const sellerInfo = await seller.getSellerByEmail(email);
+    const { sellerPassword, sellerId } = await seller.getSellerByEmail(email);
     let code = 1,
-        msg = '邮箱或密码错误';
-    console.log(sellerInfo);
-    console.log(pwd);
-    if (sellerInfo) {
-        if (!bcrypt.compareSync(pwd, sellerInfo.sellerPassword)) {
-
-        } else {
+        msg = '邮箱或密码错误',
+        token;
+    if (sellerId) {
+        if (bcrypt.compareSync(pwd, sellerPassword)) {
             code = 0;
             msg = '登录成功'
+            const payload = {
+                email,
+                sellerId
+            }
+            const secret = 'wepay';
+            token = jwt.sign(payload, secret);
         }
     }
     ctx.body = {
         code: code,
-        msg: msg
+        msg: msg,
+        token: token
     }
 }
 
