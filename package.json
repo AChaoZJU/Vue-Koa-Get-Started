@@ -17,6 +17,8 @@
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.0.1",
     "koa": "^2.3.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
     "koa-router": "^7.2.1",
     "koa-send": "^4.1.1",
     "mysql2": "^1.4.2",

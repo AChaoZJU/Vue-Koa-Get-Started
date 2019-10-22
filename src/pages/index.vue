@@ -32,19 +32,19 @@ export default {
                 message = '邮箱或密码错误，请重新输入'
             if (this.checkEmail(this.email) && this.checkPwd(this.pwd)) {
                 let obj = {
-                    email: this.email,
-                    pwd: this.pwd
+                    name: this.email,
+                    password: this.pwd
                 }
                 this.$http.post('/auth/seller', obj).then(res => {
                     const data = res.data;
-                    if (data.code === 0) {
+                    //if (data.code === 0) {
                         type = 'success';
                         message = '登录成功';
                         sessionStorage.setItem('wepay-token',data.token);
                         sessionStorage.setItem('wepay-email',data.email);
                         sessionStorage.setItem('wepay-sellerId',data.sellerId);
                         this.$router.push('/good');
-                    }
+                 //   }
                 }).catch((err) => {
                     message = '系统故障';
                     console.log(err);

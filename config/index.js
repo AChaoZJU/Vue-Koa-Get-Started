@@ -62,17 +62,17 @@ module.exports = {
     },
     dev: {
         env: require('./dev.env'),
-        port: 8080,
+        port: 8083,
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
             '/auth': {
-                target: 'http://localhost:8889',
+                target: 'http://localhost:9000',
                 changeOrigin: true
             },
             '/api': {
-                target: 'http://localhost:8889',
+                target: 'http://localhost:9000',
                 changeOrigin: true
             }
         },
