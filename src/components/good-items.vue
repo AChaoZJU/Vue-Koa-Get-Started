@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         http: function() {
-            this.$http.post('/api/getGood', {
+            this.$http.get('/api/getGood', {
                 pageSize: this.pageSize, pageNumber: this.pageNumer, keyword: this.keyword
             }).then(res => {
                 const data = res.data;
