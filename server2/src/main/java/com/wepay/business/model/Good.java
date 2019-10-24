@@ -11,16 +11,16 @@ public class Good {
   private int soldAmount;
   private Long sellerId;
 
-  public Good() {
-
-  }
-
   public Good(String goodName, Double unitPrice, String goodInfo, int amount) {
-    super();
     this.goodName = goodName;
     this.unitPrice = unitPrice;
     this.goodInfo = goodInfo;
     this.amount = amount;
+  }
+
+  public Good(Long id, String goodName, Double unitPrice, String goodInfo, int amount) {
+      this(goodName, unitPrice, goodInfo, amount);
+      this.id = id;
   }
 
   public void setId(Long id) {
