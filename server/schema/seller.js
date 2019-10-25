@@ -5,48 +5,43 @@ module.exports = function(sequelize, DataTypes) {
     sellerId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true
     },
     sellerName: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     sellerPassword: {
-      type: DataTypes.STRING(128),
-      allowNull: false,
-      defaultValue: ''
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     balance: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true,
-      defaultValue: '0'
+      type: DataTypes.INTEGER(255),
+      allowNull: true
     },
     bankCard: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     realName: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     phoneNumber: {
-      type: DataTypes.STRING(15),
-      allowNull: false,
-      unique: true
+      type: DataTypes.STRING(0),
+      allowNull: true
     },
     sellerImgUrl: {
-      type: DataTypes.STRING(100),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     bankName: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     email: {
-      type: DataTypes.STRING(30),
-      allowNull: false,
-      defaultValue: ''
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     tableName: 'seller'

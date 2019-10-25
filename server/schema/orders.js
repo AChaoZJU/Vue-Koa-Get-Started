@@ -5,8 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     orderId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true
     },
     buyerId: {
       type: DataTypes.INTEGER(11),
@@ -18,27 +17,27 @@ module.exports = function(sequelize, DataTypes) {
     },
     goodId: {
       type: DataTypes.INTEGER(11),
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'good',
         key: 'goodId'
       }
     },
     amount: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     unitPrice: {
-      type: "DOUBLE",
+      type: DataTypes.DECIMAL,
       allowNull: true
     },
     orderStatus: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     orderTime: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     }
   }, {
     tableName: 'orders'

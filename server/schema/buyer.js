@@ -5,41 +5,38 @@ module.exports = function(sequelize, DataTypes) {
     buyerId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true
     },
     buyerName: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     buyerPassword: {
-      type: DataTypes.STRING(20),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
-    email: {
-      type: DataTypes.STRING(30),
-      allowNull: true,
-      unique: true
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     phoneNumber: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.STRING(0),
       allowNull: true
     },
     bankCard: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     address: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     balance: {
-      type: "DOUBLE",
-      allowNull: true,
-      defaultValue: '0'
+      type: "DOUBLE(255,0)",
+      allowNull: true
     },
     realName: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {

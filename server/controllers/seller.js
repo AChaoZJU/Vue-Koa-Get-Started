@@ -9,6 +9,8 @@ const sellerAuth = async function(ctx) {
         msg = '邮箱或密码错误',
         token;
     if (sellerId) {
+        console.log(pwd == sellerPassword);
+        console.log(bcrypt.compareSync(pwd, sellerPassword));
         if (bcrypt.compareSync(pwd, sellerPassword)) {
             code = 0;
             msg = '登录成功'

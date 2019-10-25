@@ -5,36 +5,34 @@ module.exports = function(sequelize, DataTypes) {
     goodId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true
     },
     goodName: {
       type: DataTypes.STRING(100),
-      allowNull: false,
-      unique: true
-    },
-    unitPrice: {
-      type: "DOUBLE",
       allowNull: false
     },
-    imgUrl: {
-      type: DataTypes.STRING(100),
+    unitPrice: {
+      type: "DOUBLE(10,2)",
+      allowNull: false
+    },
+    imgURL: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     goodInfo: {
-      type: DataTypes.STRING(400),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     amount: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
+      type: DataTypes.INTEGER(255),
+      allowNull: true
     },
     goodAddress: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     soldAmount: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER(255),
       allowNull: true
     },
     sellerId: {
