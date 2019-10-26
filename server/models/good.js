@@ -1,6 +1,8 @@
 import db from '../config/db.js' // 引入表结构
+import Sequelize from 'sequelize'
 const goodModel = '../schema/good.js'
 const wepayDB = db.wepay // 引入数据库
+const Op = Sequelize.Op
 
 const good = wepayDB.import(goodModel);
 
@@ -53,7 +55,7 @@ const getGood = async function(data) {
         'offset': data.pageSize * (data.pageNumber - 1),
         where: {
             'goodName': {
-                '$like': '%' + data.keyword + '%'
+                [Op.like]: '%' + data.keyword + '%'
             }
         }
     })

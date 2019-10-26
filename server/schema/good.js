@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     goodId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     goodName: {
       type: DataTypes.STRING(100),
