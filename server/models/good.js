@@ -11,7 +11,7 @@ const getGoodDetail = async function(id) {
         where: {
             goodId: id
         },
-        attributes: ['goodId', 'goodName', 'imgUrl', 'unitPrice', 'amount', 'goodInfo']
+        attributes: ['goodId', 'name', 'imgUrl', 'unitPrice', 'amount', 'goodInfo']
     });
 
     return res;
@@ -54,7 +54,7 @@ const getGood = async function(data) {
         'limit': data.pageSize,
         'offset': data.pageSize * (data.pageNumber - 1),
         where: {
-            'goodName': {
+            'name': {
                 [Op.like]: '%' + data.keyword + '%'
             }
         }
