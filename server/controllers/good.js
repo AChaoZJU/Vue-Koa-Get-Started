@@ -51,20 +51,20 @@ const getGoodDetail = async function(ctx) {
 const uploadGood = async function(ctx) {
     const data = ctx.request.body;
     let [code, msg] = checkGood(data);
-    let result, goodId;
+    let result, id;
     if (code === 0) {
         result = await good.uploadGood(data);
         if (!result[1]) {
             msg = "商品名称重复"
             code = 1;
         } else {
-            goodId = result[0].goodId
+            id = result[0].id
         }
     }
     ctx.body = {
         code: code,
         msg: msg,
-        data: goodId
+        data: id
     }
 }
 
