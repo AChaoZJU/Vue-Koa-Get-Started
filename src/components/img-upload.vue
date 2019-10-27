@@ -12,6 +12,9 @@
 </template>
 
 <style>
+  .avatar-uploader {
+    text-align: left;
+  }
   .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
@@ -42,6 +45,7 @@
     data() {
       return {
         imageUrl: '',
+        img: '',
         headers: {
           Authorization:"Bearer " + sessionStorage.getItem('wepay-token')
         }
@@ -49,6 +53,7 @@
     },
     methods: {
       handleAvatarSuccess(res, file) {
+        this.img = file.raw.name;
         this.imageUrl = URL.createObjectURL(file.raw);
       },
       beforeAvatarUpload(file) {

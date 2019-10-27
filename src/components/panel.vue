@@ -19,7 +19,7 @@
 					<el-input type='textarea' v-model="good.info"></el-input>
 				</el-form-item>
 				<el-form-item label="图片上传">
-					<img-upload></img-upload>
+					<img-upload ref="imgUpload"></img-upload>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" @click="submit">
@@ -51,7 +51,8 @@
 					info: '',
 					price: 0,
 					name: '',
-					amount: 0
+					amount: 0,
+					img: ''
 				},
 				ifFeedback: false,
 				route: ''
@@ -61,8 +62,28 @@
 			'jsonUrl',
 			'id'
 		],
+        //created() {
+		// 	if(this.jsonUrl )
+        //     this.$http.get('/api/goodDetail/' + this.$route.params.id)
+        //         .then(res => {
+        //             let code = res.data.code;
+        //             if (code === 0) {
+        //                 this.good = res.data.result;
+        //                 this.updateRoute = '/update/' + this.good.id;
+        //                 this.good.price = price(this.good.price);
+        //             } else {
+        //                 this.$message({
+        //                     type: 'error',
+        //                     message: res.data.msg
+        //                 });
+        //             }
+        //         }).catch(error => {
+    
+        //         })
+        // },
 		methods: {
 			submit: function() {
+				this.good.img = this.$refs.imgUpload.img;
 				this.good.id = this.id;
 				this.$http.post(this.jsonUrl, this.good)
 					.then(res => {
