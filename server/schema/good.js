@@ -2,41 +2,42 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('good', {
-    goodId: {
+    'id': {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name: {
+    'name': {
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    unitPrice: {
+    'price': {
       type: "DOUBLE(10,2)",
       allowNull: false
     },
-    imgURL: {
+    'img': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    goodInfo: {
+    'info': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    amount: {
+    'amount': {
       type: DataTypes.INTEGER(255),
       allowNull: true
     },
-    goodAddress: {
+    'address': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    soldAmount: {
+    'soldAmount': {
       type: DataTypes.INTEGER(255),
-      allowNull: true
+      allowNull: true,
+      defaultValue: '0'
     },
-    sellerId: {
+    'sellerId': {
       type: DataTypes.INTEGER(11),
       allowNull: true,
       references: {

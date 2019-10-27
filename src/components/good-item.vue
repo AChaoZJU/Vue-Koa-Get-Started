@@ -2,11 +2,11 @@
   <el-col :span="6">
       <el-card>
           <router-link :to='router'>
-            <img :src="good.imgUrl">
-            <div class="good-price">{{good.unitPrice}}</div>
-            <div>{{good.goodName}}</div>
+            <img :src="good.img">
+            <div class="good-price">{{good.price}}</div>
+            <div>{{good.name}}</div>
             <div class="sell-amount">
-                成交量:<span>{{good.soldAmount}}笔</span>
+                成交量:<span>{{good.soldAmount === null ? 0 : good.soldAmount}}笔</span>
             </div>
         </router-link>
         </el-card>
@@ -24,8 +24,8 @@ export default {
     },
     props:['good'],
     created(){
-        this.good.unitPrice=priceService(this.good.unitPrice);
-        this.router='/good/'+this.good.goodId;
+        this.good.price=priceService(this.good.price);
+        this.router='/good/'+this.good.id;
     }
 }
 </script>

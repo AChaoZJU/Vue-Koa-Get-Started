@@ -19,7 +19,7 @@ export default new Router({
             name: 'good',
             component: good
         }, {
-            path: '/good/:goodId',
+            path: '/good/:id',
             name: 'goodDetial',
             component: goodDetail
         }, {
@@ -27,7 +27,7 @@ export default new Router({
             name: 'upload',
             component: upload
         }, {
-            path: '/update/:goodId',
+            path: '/update/:id',
             name: 'update',
             component: update
         }

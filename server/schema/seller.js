@@ -2,44 +2,44 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('seller', {
-    sellerId: {
+    'sellerId': {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true
     },
-    sellerName: {
+    'sellerName': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    sellerPassword: {
+    'sellerPassword': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    balance: {
+    'balance': {
       type: DataTypes.INTEGER(255),
       allowNull: true
     },
-    bankCard: {
+    'bankCard': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    realName: {
+    'realName': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    phoneNumber: {
+    'phoneNumber': {
       type: DataTypes.STRING(0),
       allowNull: true
     },
-    sellerImgUrl: {
+    'sellerImgUrl': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    bankName: {
+    'bankName': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    email: {
+    'email': {
       type: DataTypes.STRING(255),
       allowNull: true
     }

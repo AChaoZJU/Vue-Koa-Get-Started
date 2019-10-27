@@ -7,12 +7,12 @@
         </el-col>
         <el-col :span="8">
             <el-card class="box-card">
-                <div class="name">{{good.goodName}}</div>
+                <div class="name">{{good.name}}</div>
                 <el-card>
-                    商品信息:<br><br> {{good.goodInfo}}
+                    商品信息:<br><br> {{good.info}}
                 </el-card>
                 <div class="item">
-                    价格:<span>{{good.unitPrice}}</span>
+                    价格:<span>{{good.price}}</span>
                 </div>
                 <div class="item">
                     库存：{{good.amount}}
@@ -44,13 +44,13 @@
             }
         },
         created() {
-            this.$http.get('/api/goodDetail/' + this.$route.params.goodId)
+            this.$http.get('/api/goodDetail/' + this.$route.params.id)
                 .then(res => {
                     let code = res.data.code;
                     if (code === 0) {
                         this.good = res.data.result;
-                        this.updateRoute = '/update/' + this.good.goodId;
-                        this.good.unitPrice = price(this.good.unitPrice);
+                        this.updateRoute = '/update/' + this.good.id;
+                        this.good.price = price(this.good.price);
                     } else {
                         this.$message({
                             type: 'error',
@@ -63,7 +63,7 @@
         },
         methods: {
             download: function() {
-                this.$http.get('/api/deleteGood/' + this.good.goodId).then(res => {
+                this.$http.get('/api/deleteGood/' + this.good.id).then(res => {
                     this.ifFeedback = true;
                     let type;
                     if (res.data.code === 0) {

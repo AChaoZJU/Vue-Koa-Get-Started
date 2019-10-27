@@ -2,12 +2,12 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('orders', {
-    orderId: {
+    'orderId': {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true
     },
-    buyerId: {
+    'buyerId': {
       type: DataTypes.INTEGER(11),
       allowNull: true,
       references: {
@@ -15,27 +15,27 @@ module.exports = function(sequelize, DataTypes) {
         key: 'buyerId'
       }
     },
-    goodId: {
+    'goodId': {
       type: DataTypes.INTEGER(11),
       allowNull: true,
       references: {
         model: 'good',
-        key: 'goodId'
+        key: 'id'
       }
     },
-    amount: {
+    'amount': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    unitPrice: {
+    'unitPrice': {
       type: DataTypes.DECIMAL,
       allowNull: true
     },
-    orderStatus: {
+    'orderStatus': {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    orderTime: {
+    'orderTime': {
       type: DataTypes.DATE,
       allowNull: true
     }

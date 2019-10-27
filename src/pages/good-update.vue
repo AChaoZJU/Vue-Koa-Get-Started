@@ -1,5 +1,5 @@
 <template>
-  <panel :jsonUrl='jsonUrl' :goodId='this.$route.params.goodId'>
+  <panel :jsonUrl='jsonUrl' :id='this.$route.params.id'>
       <h4 slot="header">编辑商品</h4>
       <span slot="button">确定</span>
       <span slot="result">编辑</span>
@@ -18,7 +18,7 @@ export default {
         }
     },
     created(){
-        this.jsonUrl='/api/update/'+this.$route.params.goodId;
+        this.jsonUrl='/api/update/'+this.$route.params.id;
     },
     components:{
         panel

@@ -9,9 +9,9 @@ const good = wepayDB.import(goodModel);
 const getGoodDetail = async function(id) {
     const res = await good.findOne({
         where: {
-            goodId: id
+            id: id
         },
-        attributes: ['goodId', 'name', 'imgUrl', 'unitPrice', 'amount', 'goodInfo']
+        attributes: ['id', 'name', 'img', 'price', 'amount', 'info']
     });
 
     return res;
@@ -20,7 +20,7 @@ const getGoodDetail = async function(id) {
 const uploadGood = async function(data) {
     const res = await good.findOrCreate({
         where: {
-            goodName: data.goodName
+            name: data.name
         },
         defaults: data
     })
@@ -31,7 +31,7 @@ const updateGood = async function(id, data) {
     const res = await good.update(
         data, {
             where: {
-                goodId: id
+                id: id
             }
         }).catch(err => {
         console.log(err);
@@ -42,7 +42,7 @@ const updateGood = async function(id, data) {
 const deleteGood = async function(id) {
     const row = await good.destroy({
         where: {
-            goodId: id
+            id: id
         }
     })
 

@@ -7,22 +7,25 @@
 		<main>
 			<el-form :model="good" label-width="80px" ref="goodForm">
 				<el-form-item label="商品名称">
-					<el-input v-model="good.goodName"></el-input>
+					<el-input v-model="good.name"></el-input>
 				</el-form-item>
 				<el-form-item label="价格">
-					<el-input v-model="good.unitPrice"></el-input>
+					<el-input v-model="good.price"></el-input>
 				</el-form-item>
 				<el-form-item label="库存">
 					<el-input v-model="good.amount"></el-input>
 				</el-form-item>
 				<el-form-item label="商品介绍">
-					<el-input type='textarea' v-model="good.goodInfo"></el-input>
+					<el-input type='textarea' v-model="good.info"></el-input>
+				</el-form-item>
+				<el-form-item label="图片上传">
+					<img-upload></img-upload>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" @click="submit">
 						<slot name='button'></slot>
 					</el-button>
-				</el-form-item>
+				</el-form-item> 
 				<div class="feedback" v-show="ifFeedback">
 					<div>
 						<img src="/static/icons/success.svg">
@@ -39,14 +42,15 @@
 
 <script>
 	import axios from 'axios'
+	import imgUpload from '@/components/img-upload'
 	export default {
 		data() {
 			return {
 				good: {
-					goodId: '',
-					goodInfo: '',
-					unitPrice: 0,
-					goodName: '',
+					id: '',
+					info: '',
+					price: 0,
+					name: '',
 					amount: 0
 				},
 				ifFeedback: false,
@@ -55,11 +59,11 @@
 		},
 		props: [
 			'jsonUrl',
-			'goodId'
+			'id'
 		],
 		methods: {
 			submit: function() {
-				this.good.goodId = this.goodId;
+				this.good.id = this.id;
 				this.$http.post(this.jsonUrl, this.good)
 					.then(res => {
 						const data = res.data;
@@ -68,7 +72,7 @@
 							if(data.data){
 								this.route = '/good/'+data.data;
 							}else{
-								this.route = '/good/'+ this.goodId;
+								this.route = '/good/'+ this.id;
 							}
 							this.$message({
 								type: 'success',
@@ -85,10 +89,13 @@
 					})
 			},
 			toContinue: function() {
-				this.good.amount  =  this.good.unitPrice = 0;
-				this.good.goodInfo = this.good.goodName  = '';
+				this.good.amount  =  this.good.price = 0;
+				this.good.info = this.good.name  = '';
 				this.ifFeedback = false;
 			}
+		},
+		components: {
+			imgUpload
 		}
 	}
 </script>
