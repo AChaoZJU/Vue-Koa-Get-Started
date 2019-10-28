@@ -62,25 +62,24 @@
 			'jsonUrl',
 			'id'
 		],
-        //created() {
-		// 	if(this.jsonUrl )
-        //     this.$http.get('/api/goodDetail/' + this.$route.params.id)
-        //         .then(res => {
-        //             let code = res.data.code;
-        //             if (code === 0) {
-        //                 this.good = res.data.result;
-        //                 this.updateRoute = '/update/' + this.good.id;
-        //                 this.good.price = price(this.good.price);
-        //             } else {
-        //                 this.$message({
-        //                     type: 'error',
-        //                     message: res.data.msg
-        //                 });
-        //             }
-        //         }).catch(error => {
-    
-        //         })
-        // },
+		created() {
+			if(this.jsonUrl.includes("update")) {
+            	this.$http.get('/api/goodDetail/' + this.$route.params.id)
+            	    .then(res => {
+            	        let code = res.data.code;
+            	        if (code === 0) {
+            	            this.good = res.data.result;
+            	            this.good.price = price(this.good.price);
+            	        } else {
+            	            this.$message({
+            	                type: 'error',
+            	                message: res.data.msg
+            	            });
+            	        }
+            	    }).catch(error => {
+            	    })
+			}
+		},
 		methods: {
 			submit: function() {
 				this.good.img = this.$refs.imgUpload.img;
