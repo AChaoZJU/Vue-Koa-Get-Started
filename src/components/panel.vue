@@ -19,7 +19,7 @@
 					<el-input type='textarea' v-model="good.info"></el-input>
 				</el-form-item>
 				<el-form-item label="图片上传">
-					<img-upload ref="imgUpload"></img-upload>
+					<img-upload :imgURL='good.img' ref="imgUpload"></img-upload>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" @click="submit">

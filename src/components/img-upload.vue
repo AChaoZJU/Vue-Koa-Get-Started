@@ -6,7 +6,7 @@
       :show-file-list="false"
       :on-success="handleAvatarSuccess"
       :before-upload="beforeAvatarUpload">
-      <img v-if="imageUrl" :src="imageUrl" class="avatar">
+      <img v-if="img || imgURL" :src="img || imgURL" class="avatar">
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
 </template>
@@ -44,17 +44,18 @@
   export default {
     data() {
       return {
-        imageUrl: '',
         img: '',
         headers: {
           Authorization:"Bearer " + sessionStorage.getItem('wepay-token')
         }
       };
     },
+    props: ['imgURL'],
     methods: {
       handleAvatarSuccess(res, file) {
-        this.imageUrl = URL.createObjectURL(file.raw);
-        this.img = `http://localhost:9111/${file.raw.name}`;
+        const host = 'localhost';
+        const port = '9111'
+        this.img = `http://${host}:${port}/${file.raw.name}`;
       },
       beforeAvatarUpload(file) {
         const isJPG = file.type === 'image/jpeg';
