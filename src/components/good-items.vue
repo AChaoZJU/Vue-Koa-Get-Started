@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row>
-            <good-item v-for="(good,index) in goods" :key="index" :good="good"></good-item>
+            <good-item v-for="(good,index) in goods" :key="good.id" :good="good"></good-item>
         </el-row>
         <good-paging :total='total' v-on:handleCurrentChange='paging' v-on:handleSizeChange='changeSize'></good-paging>
     </div>
