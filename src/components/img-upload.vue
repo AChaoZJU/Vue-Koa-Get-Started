@@ -53,8 +53,8 @@
     },
     methods: {
       handleAvatarSuccess(res, file) {
-        this.img = file.raw.name;
         this.imageUrl = URL.createObjectURL(file.raw);
+        this.img = `http://localhost:9111/${file.raw.name}`;
       },
       beforeAvatarUpload(file) {
         const isJPG = file.type === 'image/jpeg';

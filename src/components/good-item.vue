@@ -1,7 +1,7 @@
 <template>
   <el-col :span="6">
       <el-card>
-          <router-link :to='router'>
+          <router-link :to="router">
             <img :src="good.img">
             <div class="good-price">{{good.price}}</div>
             <div>{{good.name}}</div>
