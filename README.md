@@ -1,3 +1,4 @@
+This is get-started project for Vue.js and Node.js(Koa)
 ## Installation
 ```
 cd Wepay-Business-System
