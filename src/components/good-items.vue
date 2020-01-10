@@ -33,8 +33,8 @@ export default {
                         message: data.msg
                     })
                 }
-                this.goods = data.data
-                this.total = Number.isInteger(data.msg) ?data.msg:0
+                this.goods = data
+                this.total = data.length
             }).catch(err => {
             });
         },
